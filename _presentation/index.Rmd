@@ -79,6 +79,15 @@ xaringanExtra::use_fit_screen()
 
 ##  Les carabes 
 
+<figure>
+  <img src="intro4.png" alt="at the beginning is" style="width:90%" class = "centerimg" />
+</figure>
+
+---
+# Contexte général en agroécologie
+
+##  Les carabes 
+
 * Des alliés dans la lutte biologique pour la préservation des cultures : prédateurs de pucerons, limaces `r Citep(myBib,c('symondson2004coleoptera'))`
 
 * Mais les carabes forment une grande famille 
