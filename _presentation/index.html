@@ -1,15 +1,24 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>index.utf8</title>
+    <title>Un modèle hiérarchique pour déterminer dans quelle mesure les petites bêtes mangent les grosses</title>
     <meta charset="utf-8" />
+    <meta name="author" content="Kevan Rastello, Manuel Plantegenest, Marie-Pierre Etienne" />
+    <meta name="date" content="2022-01-01" />
     <script src="libs/header-attrs-2.7/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
     <script src="libs/xaringanExtra_fit-screen-0.2.6/fit-screen.js"></script>
-    <link rel="stylesheet" href="mpe_pres_HDR.css" type="text/css" />
+    <link rel="stylesheet" href="mpe_pres.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Un modèle hiérarchique pour déterminer dans quelle mesure les petites bêtes mangent les grosses
+### Kevan Rastello, Manuel Plantegenest, Marie-Pierre Etienne
+### 2022
+
+---
 
 name: intro
 
@@ -25,27 +34,264 @@ name: intro
 
 
 
-&lt;!-- # Why do I enjoy research in statistics  ? --&gt;
-&lt;!-- -- --&gt;
+
+
+# Contexte général en agroécologie
+
+--
+##  Les carabes 
+
+&lt;figure&gt;
+  &lt;img src="intro1.png" alt="at the beginning is" style="width:90%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+
+---
+# Contexte général en agroécologie
+
+##  Les carabes 
+
+&lt;figure&gt;
+  &lt;img src="intro2.png" alt="at the beginning is" style="width:90%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+
+---
+# Contexte général en agroécologie
+
+##  Les carabes 
+
+&lt;figure&gt;
+  &lt;img src="intro3.png" alt="at the beginning is" style="width:90%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+
+---
+# Contexte général en agroécologie
+
+##  Les carabes 
+
+* Des alliés dans la lutte biologique pour la préservation des cultures : prédateurs de pucerons, limaces &lt;a name=cite-symondson2004coleoptera&gt;&lt;/a&gt;([Symondson and others, 2004](#bib-symondson2004coleoptera))
+
+* Mais les carabes forment une grande famille 
+  
+    * certains membres de la famille préfèrent des auxiliaires des cultures comme les vers de terre ou les araignées &lt;a name=cite-king2010prey&gt;&lt;/a&gt;([King, Vaughan, Bell, et al., 2010](#bib-king2010prey))
+
+   * Des études en milieu contrôlé mais peu d'études aux champs sur l'impact réel des communautés de carabes
+
+--
+
+.care[Quantifier l'impact des différentes sortes de carabes sur différents alliés ou ravageurs de cultures]
 
 
 
-&lt;!-- &lt;div class= "addspace"&gt; --&gt;
-&lt;!-- &lt;li&gt; Working with researchers from different background,&lt;/li&gt; --&gt;
-&lt;!-- &lt;/div&gt; --&gt;
+---
 
-&lt;!-- &lt;div class= "addspace"&gt; --&gt;
-&lt;!-- &lt;li&gt; Never left the school system, &lt;/li&gt; --&gt;
-&lt;!-- &lt;/div&gt; --&gt;
+# Contexte général en recherche
+
+&lt;figure&gt;
+  &lt;img src="Analogie1.png" alt="at the beginning is" style="width:90%" class = "centerimg" /&gt;
+&lt;/figure&gt;
 
 
-&lt;!-- &lt;div class= "addspace"&gt; --&gt;
-&lt;!-- &lt;li&gt; Continnuously learning new concepts, methods, tools  &lt;/li&gt; --&gt;
-&lt;!-- &lt;/div&gt; --&gt;
+---
 
-&lt;!-- &lt;div class= "addspace"&gt; --&gt;
-&lt;!-- &lt;li&gt; being confortable with my inside geek part.  &lt;/li&gt; --&gt;
-&lt;!-- &lt;/div&gt; --&gt;
+# Contexte général en recherche
+
+&lt;figure&gt;
+  &lt;img src="Analogie2.png" alt="at the beginning is" style="width:90%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+
+
+---
+
+# Contexte général en recherche
+
+&lt;figure&gt;
+  &lt;img src="Analogie2Bis.png" alt="at the beginning is" style="width:90%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+
+
+---
+
+# Contexte général en recherche
+
+&lt;figure&gt;
+  &lt;img src="Analogie3.png" alt="at the beginning is" style="width:90%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+
+
+
+.care[Le directeur ou la directrice est t il/elle un frein ou une aide au doctorant ? ]
+
+---
+# Contexte général en agroécologie
+
+##  Les carabes 
+
+&lt;figure&gt;
+  &lt;img src="intro3.png" alt="at the beginning is" style="width:90%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+
+
+.care[Quantifier l'impact des différentes sortes de carabes sur différents alliés ou ravageurs de cultures]
+
+---
+# Contexte général en agroécologie
+
+## L'aide de la biologie moléculaire 
+
+ Séquençage du contenu stomacal : présence / absence des proies 
+
+--
+
+## Le problème de la digestion
+
+* Les traces de proies ne sont visibles tant qu'elles ne sont pas digérées, processus de digestion inconnu
+
+
+
+&lt;figure&gt;
+  &lt;img src="whole_process.svg" alt="at the beginning is" style="width:30%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+
+---
+# Les données
+
+.pull-left[
+## Carabes prélevés en milieu agricole
+.pred[Prédation] + .digest[Digestion]
+
+* &lt;img src="carab.svg" alt="at the beginning is" style="width:10%"/&gt;  Des carabes prélevés aux champs (échantillonnage aléatoire)
+* &lt;img src="dna.svg" alt="at the beginning is" style="width:10%"/&gt; Diagnostique PCR multiplex
+
+]
+
+.pull-right[
+## Carabes en laboratoire
+ .digest[Digestion]
+
+* &lt;img src="carab.svg" alt="at the beginning is" style="width:10%"/&gt;  Affamés, on leur fournit un unique type de proies
+* &lt;img src="dna.svg" alt="at the beginning is" style="width:10%"/&gt; Diagnostique PCR multiplex
+* &lt;img src="dna.svg" alt="at the beginning is" style="width:10%"/&gt; Diagnostique PCR multiplex
+* &lt;img src="clock.svg" alt="at the beginning is" style="width:10%"/&gt; Analyse à différents temps
+
+]
+
+
+---
+name:model
+# Un modèle intégré
+
+--
+## Modèle de prédation pour un couple proie-carabe
+
+* Un processus de Processus de Poisson homogène d'intensité  `\(\lambda_{pc}\)`
+
+&lt;img src="pred_pp.svg" alt="at the beginning is" style="width:50%"/&gt;
+
+---
+template:model
+
+## Modèle de prédation pour un couple proie-carabe
+
+* Un processus de Processus de Poisson homogène d'intensité  `\(\lambda_{pc}\)`
+
+&lt;img src="pred_pp_reverse.svg" alt="at the beginning is" style="width:50%"/&gt;
+
+---
+template:model
+
+## Modèle de prédation pour un couple proie-carabe
+
+* Un processus de Processus de Poisson homogène d'intensité  `\(\lambda_{pc}\)` avec digestion
+
+&lt;img src="pred_pp_reverse_dig.svg" alt="at the beginning is" style="width:50%"/&gt;
+
+--
+
+Les évènements de prédation détectable sont un PP inhomogène d'intensité 
+
+`$$\mu_{pc}(t) = \lambda_{pc} \frac{e^{\beta_0^{bc}- \beta_1^{bc} t}}{1 + e^{\beta_0^{pc} - \beta_1^{pc} t}}.$$`
+
+
+## Modèle d'observation
+
+L'observation est une présence ou absence pour chaque type de proies 
+
+`$$Y_{cpk} \sim \mathcal{B}(p_{cp}), \quad p_{cp} = 1- \int_0^{+\infty} \mu_{pc}(t) dt.$$`
+
+---
+template:model
+
+## Modèle pour les données de laboratoires
+
+Pour chaque temps `\(t\)`, on note si la proie est encore visible, on a donc une simple régression logistique
+
+`$$Z_{cpk} \sim \mathcal{B}(p_{cpk}), \quad logit(p_{cpk}) =  \beta^{pc}_0 -\beta^{pc}_1 t_{cpk}$$`
+
+
+---
+template:model
+
+
+
+&lt;img src="DAG.png" alt="at the beginning is" style="width:80%"/&gt;
+
+
+
+---
+# Résultats 
+
+## sur les ravageurs 
+
+
+&lt;img src="res1.png" alt="at the beginning is" style="width:80%"/&gt;
+
+
+
+---
+# Résultats 
+
+## sur les auxiliaires 
+
+
+&lt;img src="res2.png" alt="at the beginning is" style="width:80%"/&gt;
+
+
+
+---
+# Perspectives 
+
+
+* Intégrer les données de fluorescence de la biologie moléculaire directement (seuil pour 0/1 difficile à déterminer)
+
+* Prendre en compte un comportement nocture/diurne
+
+* Coupler avec des mesures d'abondance des différentes proies aux champs 
+
+--
+
+## Une autre perspective enthousiasmante : les recontres R à Avignon su 21 au 23 juin
+ 
+.left-column[&lt;img src="Banner_Rencontres_R_Avignon_2023.png" alt="at the beginning is" style="width:95%"/&gt;]
+.right-column[&lt;img src="Logo Rencontres R fond blanc_carre.png" alt="at the beginning is" style="width:50%"/&gt;]
+
+
+
+---
+# Des photos pour finir 
+
+Âmes sensibles s'abstenir, des animaux ont souffert pour obtenir ces images
+
+--
+
+.pull-left[
+&lt;img src="carab+limace.jpg" alt="at the beginning is" style="width:70%"/&gt;
+&lt;img src="carab+puceron.jpg" alt="at the beginning is" style="width:70%"/&gt;]
+
+
+.pull-left[
+&lt;img src="carab+araignee.jpg" alt="at the beginning is" style="width:70%"/&gt;
+&lt;img src="carab+lombric.jpg" alt="at the beginning is" style="width:70%"/&gt;]
+
 
 
 
@@ -56,12 +302,17 @@ count: false
 # Bibliography
 &lt;img class="logopos_right" src="article.png" style="height:6%"&gt;
 
+&lt;a name=bib-king2010prey&gt;&lt;/a&gt;[King, R. A., I. P. Vaughan, J. R. Bell,
+et al.](#cite-king2010prey) (2010). "Prey choice by carabid beetles
+feeding on an earthworm community analysed using species-and
+lineage-specific PCR primers". In: _Molecular Ecology_ 19.8, pp.
+1721-1732.
 
-```
-## You haven't cited any references in this bibliography yet.
-```
-
-NULL
+&lt;a name=bib-symondson2004coleoptera&gt;&lt;/a&gt;[Symondson, W. O. and
+others](#cite-symondson2004coleoptera) (2004). "Coleoptera (Carabidae,
+Staphylinidae, Lampyridae, Drilidae and Silphidae) as predators of
+terrestrial gastropods". In: _Natural enemies of terrestrial molluscs_,
+pp. 37-84.
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>

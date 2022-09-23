@@ -1,13 +1,12 @@
 ---
-title: "Un modèle hiérarchique pour déterminer dans quelle mesure les petites bêtes mangent
-les grosses"
-author: Marie-Pierre Etienne
+title: "Un modèle hiérarchique pour déterminer dans quelle mesure les petites bêtes mangent les grosses"
+author: Kevan Rastello,  Manuel Plantegenest, Marie-Pierre Etienne 
 institute: ""
 date: "2022"
 csl: "../resources/apa-no-doi-no-issue.csl"
 output:
    xaringan::moon_reader:
-    css: ['metropolis',  'mpe_pres_HDR.css']
+    css: ['metropolis',  'mpe_pres.css']
     lib_dir: libs
     nature:
       ratio: 16:10
@@ -46,27 +45,264 @@ myBib <- ReadBib('biblio.bib', check = FALSE)
 xaringanExtra::use_fit_screen()
 ```
 
-<!-- # Why do I enjoy research in statistics  ? -->
-<!-- -- -->
+
+
+# Contexte général en agroécologie
+
+--
+##  Les carabes 
+
+<figure>
+  <img src="intro1.png" alt="at the beginning is" style="width:90%" class = "centerimg" />
+</figure>
+
+---
+# Contexte général en agroécologie
+
+##  Les carabes 
+
+<figure>
+  <img src="intro2.png" alt="at the beginning is" style="width:90%" class = "centerimg" />
+</figure>
+
+---
+# Contexte général en agroécologie
+
+##  Les carabes 
+
+<figure>
+  <img src="intro3.png" alt="at the beginning is" style="width:90%" class = "centerimg" />
+</figure>
+
+---
+# Contexte général en agroécologie
+
+##  Les carabes 
+
+* Des alliés dans la lutte biologique pour la préservation des cultures : prédateurs de pucerons, limaces `r Citep(myBib,c('symondson2004coleoptera'))`
+
+* Mais les carabes forment une grande famille 
+  
+    * certains membres de la famille préfèrent des auxiliaires des cultures comme les vers de terre ou les araignées `r Citep(myBib,c('king2010prey'))`
+
+   * Des études en milieu contrôlé mais peu d'études aux champs sur l'impact réel des communautés de carabes
+
+--
+
+.care[Quantifier l'impact des différentes sortes de carabes sur différents alliés ou ravageurs de cultures]
 
 
 
-<!-- <div class= "addspace"> -->
-<!-- <li> Working with researchers from different background,</li> -->
-<!-- </div> -->
+---
 
-<!-- <div class= "addspace"> -->
-<!-- <li> Never left the school system, </li> -->
-<!-- </div> -->
+# Contexte général en recherche
+
+<figure>
+  <img src="Analogie1.png" alt="at the beginning is" style="width:90%" class = "centerimg" />
+</figure>
 
 
-<!-- <div class= "addspace"> -->
-<!-- <li> Continnuously learning new concepts, methods, tools  </li> -->
-<!-- </div> -->
+---
 
-<!-- <div class= "addspace"> -->
-<!-- <li> being confortable with my inside geek part.  </li> -->
-<!-- </div> -->
+# Contexte général en recherche
+
+<figure>
+  <img src="Analogie2.png" alt="at the beginning is" style="width:90%" class = "centerimg" />
+</figure>
+
+
+---
+
+# Contexte général en recherche
+
+<figure>
+  <img src="Analogie2Bis.png" alt="at the beginning is" style="width:90%" class = "centerimg" />
+</figure>
+
+
+---
+
+# Contexte général en recherche
+
+<figure>
+  <img src="Analogie3.png" alt="at the beginning is" style="width:90%" class = "centerimg" />
+</figure>
+
+
+
+.care[Le directeur ou la directrice est t il/elle un frein ou une aide au doctorant ? ]
+
+---
+# Contexte général en agroécologie
+
+##  Les carabes 
+
+<figure>
+  <img src="intro3.png" alt="at the beginning is" style="width:90%" class = "centerimg" />
+</figure>
+
+
+.care[Quantifier l'impact des différentes sortes de carabes sur différents alliés ou ravageurs de cultures]
+
+---
+# Contexte général en agroécologie
+
+## L'aide de la biologie moléculaire 
+
+ Séquençage du contenu stomacal : présence / absence des proies 
+
+--
+
+## Le problème de la digestion
+
+* Les traces de proies ne sont visibles tant qu'elles ne sont pas digérées, processus de digestion inconnu
+
+
+
+<figure>
+  <img src="whole_process.svg" alt="at the beginning is" style="width:30%" class = "centerimg" />
+</figure>
+
+---
+# Les données
+
+.pull-left[
+## Carabes prélevés en milieu agricole
+.pred[Prédation] + .digest[Digestion]
+
+* <img src="carab.svg" alt="at the beginning is" style="width:10%"/>  Des carabes prélevés aux champs (échantillonnage aléatoire)
+* <img src="dna.svg" alt="at the beginning is" style="width:10%"/> Diagnostique PCR multiplex
+
+]
+
+.pull-right[
+## Carabes en laboratoire
+ .digest[Digestion]
+
+* <img src="carab.svg" alt="at the beginning is" style="width:10%"/>  Affamés, on leur fournit un unique type de proies
+* <img src="dna.svg" alt="at the beginning is" style="width:10%"/> Diagnostique PCR multiplex
+* <img src="dna.svg" alt="at the beginning is" style="width:10%"/> Diagnostique PCR multiplex
+* <img src="clock.svg" alt="at the beginning is" style="width:10%"/> Analyse à différents temps
+
+]
+
+
+---
+name:model
+# Un modèle intégré
+
+--
+## Modèle de prédation pour un couple proie-carabe
+
+* Un processus de Processus de Poisson homogène d'intensité  $\lambda_{pc}$
+
+<img src="pred_pp.svg" alt="at the beginning is" style="width:50%"/>
+
+---
+template:model
+
+## Modèle de prédation pour un couple proie-carabe
+
+* Un processus de Processus de Poisson homogène d'intensité  $\lambda_{pc}$
+
+<img src="pred_pp_reverse.svg" alt="at the beginning is" style="width:50%"/>
+
+---
+template:model
+
+## Modèle de prédation pour un couple proie-carabe
+
+* Un processus de Processus de Poisson homogène d'intensité  $\lambda_{pc}$ avec digestion
+
+<img src="pred_pp_reverse_dig.svg" alt="at the beginning is" style="width:50%"/>
+
+--
+
+Les évènements de prédation détectable sont un PP inhomogène d'intensité 
+
+$$\mu_{pc}(t) = \lambda_{pc} \frac{e^{\beta_0^{bc}- \beta_1^{bc} t}}{1 + e^{\beta_0^{pc} - \beta_1^{pc} t}}.$$
+
+
+## Modèle d'observation
+
+L'observation est une présence ou absence pour chaque type de proies 
+
+$$Y_{cpk} \sim \mathcal{B}(p_{cp}), \quad p_{cp} = 1- \int_0^{+\infty} \mu_{pc}(t) dt.$$
+
+---
+template:model
+
+## Modèle pour les données de laboratoires
+
+Pour chaque temps $t$, on note si la proie est encore visible, on a donc une simple régression logistique
+
+$$Z_{cpk} \sim \mathcal{B}(p_{cpk}), \quad logit(p_{cpk}) =  \beta^{pc}_0 -\beta^{pc}_1 t_{cpk}$$
+
+
+---
+template:model
+
+
+
+<img src="DAG.png" alt="at the beginning is" style="width:80%"/>
+
+
+
+---
+# Résultats 
+
+## sur les ravageurs 
+
+
+<img src="res1.png" alt="at the beginning is" style="width:80%"/>
+
+
+
+---
+# Résultats 
+
+## sur les auxiliaires 
+
+
+<img src="res2.png" alt="at the beginning is" style="width:80%"/>
+
+
+
+---
+# Perspectives 
+
+
+* Intégrer les données de fluorescence de la biologie moléculaire directement (seuil pour 0/1 difficile à déterminer)
+
+* Prendre en compte un comportement nocture/diurne
+
+* Coupler avec des mesures d'abondance des différentes proies aux champs 
+
+--
+
+## Une autre perspective enthousiasmante : les recontres R à Avignon su 21 au 23 juin
+ 
+.left-column[<img src="Banner_Rencontres_R_Avignon_2023.png" alt="at the beginning is" style="width:95%"/>]
+.right-column[<img src="Logo Rencontres R fond blanc_carre.png" alt="at the beginning is" style="width:50%"/>]
+
+
+
+---
+# Des photos pour finir 
+
+Âmes sensibles s'abstenir, des animaux ont souffert pour obtenir ces images
+
+--
+
+.pull-left[
+<img src="carab+limace.jpg" alt="at the beginning is" style="width:70%"/>
+<img src="carab+puceron.jpg" alt="at the beginning is" style="width:70%"/>]
+
+
+.pull-left[
+<img src="carab+araignee.jpg" alt="at the beginning is" style="width:70%"/>
+<img src="carab+lombric.jpg" alt="at the beginning is" style="width:70%"/>]
+
 
 
 
@@ -78,6 +314,6 @@ count: false
 <img class="logopos_right" src="article.png" style="height:6%">
 
 ```{r refs_3, echo=FALSE, results="asis", eval = TRUE, cache = FALSE}
-PrintBibliography(myBib, start = 15, end = 16)
+PrintBibliography(myBib)
 ```
 
