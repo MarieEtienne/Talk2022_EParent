@@ -13,7 +13,6 @@ output:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
-      beforeInit: '../courses_tools/resources/collapseoutput.js'
 ---
 name: intro
 
